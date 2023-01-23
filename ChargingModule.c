@@ -48,9 +48,10 @@ void vChargingModule(void)
             {
                 vStart_Cell_Balancing();
                 // cell balancing start if high voltage cell > CELL_BAL_MIN_VOLTAGE
+                // cell balacing is checked beween two consecutive cells 
                 // Trigger cell balancing using AFE
                 // max 50% of cell can be balanced
-                // define a time interval 
+                // define a time interval as balancing time (optional)
             }
             else
             {
