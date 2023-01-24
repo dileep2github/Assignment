@@ -46,17 +46,20 @@ void vChargingModule(void)
             // CHECK CELL BALANCING 
             if(Battery.fMaxCellVoltage - Battery.fMinCellVoltage > CELL_BALANCE_CUTIN)
             {
-                vStart_Cell_Balancing();
                 // cell balancing start if high voltage cell > CELL_BAL_MIN_VOLTAGE
                 // cell balacing is checked beween two consecutive cells 
                 // Trigger cell balancing using AFE
                 // max 50% of cell can be balanced
                 // define a time interval as balancing time (optional)
+                vStart_Cell_Balancing();
+                //check & then start 
             }
             else
             {
+            	// check for stop ongoing cell balancing 
+            	// if difference between consecutive cells is < 20 mv stop cell balancing 
                 vStop_Cell_Balancing();
-                // stop cell balancing using AFE
+                // check & Then stop cell balancing using AFE
             }
                 
         }
